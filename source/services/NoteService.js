@@ -98,7 +98,7 @@ module.exports = class NoteService {
       return { status: SUCCESS, data };
     } catch (error) {
       console.log(error);
-      return ERROR;
+      return { status: ERROR };
     }
   }
 
@@ -117,7 +117,7 @@ module.exports = class NoteService {
       };
     } catch (error) {
       console.log(error);
-      return ERROR;
+      return { status: ERROR };
     }
   }
 };

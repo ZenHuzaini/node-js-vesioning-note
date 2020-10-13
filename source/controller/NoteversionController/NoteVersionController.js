@@ -17,7 +17,6 @@ module.exports = class NoteVersionController {
   async checkVersions(req, res) {
     try {
       const data = await this.noteVersionService.getNotes();
-      console.log("something");
       sendResponse(res, data);
     } catch (error) {
       console.log(error);

@@ -19,23 +19,20 @@ class NoteController {
   async read(req, res) {
     try {
       const data = await this.noteService.getNotes();
-
       sendResponse(res, data);
     } catch (error) {
       console.log(error);
       sendResponse(res, { status: ERROR });
     }
   }
+
   async create(req, res) {
     const { title, content } = req.body;
     if (!title || !content) {
       return sendResponse(res, { status: REQUIRED_ARGUMENT_NOT_PROVIDED });
     }
     try {
-      console.log("something");
-
       const data = await this.noteService.saveNote(req.body);
-      console.log("get data from contrller ", data);
       sendResponse(res, data);
     } catch (error) {
       console.error(error);
@@ -73,10 +70,8 @@ class NoteController {
 
   async delete(req, res) {
     const { _id } = req.params;
-    console.log("get the id ", _id);
     try {
       const data = await this.noteService.deleteNote(_id);
-      console.log("et one data from controller ", data);
       sendResponse(res, data);
     } catch (error) {
       console.error(error);
