@@ -294,7 +294,7 @@ http://localhost:4000/api/noteVersion/jwhefvhwefbkwu4567389
 This sevice has been deployed to heroku
 
 ```sh
-https://nodejs-news-fetcher.herokuapp.com/
+https://node-js-note-versions.herokuapp.com/
 ```
 
 feel free to use it
