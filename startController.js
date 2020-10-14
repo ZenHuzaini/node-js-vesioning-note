@@ -5,7 +5,7 @@ function startControllers(app, { NoteController, NoteVersionController }) {
   app.put("/note/:_id", NoteController.update);
   app.delete("/note/:_id", NoteController.delete);
 
-  app.get("/note/deletedNote", NoteController.read);
+  app.get("/deletedNotes", NoteController.deletedNotes);
 
   app.get("/noteVersions/", NoteVersionController.checkVersions);
   app.get("/noteVersion/:_id", NoteVersionController.checkVersion);

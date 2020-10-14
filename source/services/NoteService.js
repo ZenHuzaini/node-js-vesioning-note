@@ -47,6 +47,21 @@ module.exports = class NoteService {
     }
   }
 
+  async getDeletedNote() {
+    try {
+      const data = await this.noteRepository.find({ deleted: true });
+      if (data.length === 0) {
+        return { status: SUCCESS, data: "No data is found!" };
+      }
+
+      const result = removeDeletedAttr(data);
+      return { status: SUCCESS, data: result };
+    } catch (error) {
+      console.log(error);
+      return { status: ERROR };
+    }
+  }
+
   async saveNote(params) {
     try {
       const data = await this.noteRepository.add(params);

@@ -14,6 +14,7 @@ class NoteController {
     this.readOne = this.readOne.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
+    this.deletedNotes = this.deletedNotes.bind(this);
   }
 
   async read(req, res) {
@@ -46,6 +47,16 @@ class NoteController {
     try {
       const data = await this.noteService.getNote({ _id });
       console.log("et one data from controller ", data);
+      sendResponse(res, data);
+    } catch (error) {
+      console.error(error);
+      sendResponse(res, { status: ERROR });
+    }
+  }
+
+  async deletedNotes(req, res) {
+    try {
+      const data = await this.noteService.getDeletedNote();
       sendResponse(res, data);
     } catch (error) {
       console.error(error);
